@@ -1,9 +1,12 @@
 const express = require('express')
 const routes = express.Router()
 
-// Request, Response
-routes.get('/', (req, res) =>{
-  return res.sendFile(__dirname + '/views/index.html')
-})
+const views = __dirname + '/views/'
+
+// Request, Response => Cria as rotas da aplicação
+routes.get('/', (req, res) => res.render(views + 'index'))
+routes.get('/job', (req, res) => res.render(views + 'job'))
+routes.get('/job/edit', (req, res) => res.render(views + 'job-edit'))
+routes.get('/profile', (req, res) => res.render(views + 'profile'))
 
 module.exports = routes
